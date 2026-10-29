@@ -109,3 +109,77 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+/* Rutas: enlace para saltar al contenido y enlace activo del menú */
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -4rem;
+  padding: 0.5rem 1rem;
+  background: #000;
+  color: #fff;
+  z-index: 10;
+}
+.skip-link:focus {
+  top: 0.5rem;
+}
+.menu {
+  display: flex;
+  gap: 1rem;
+}
+/* NavLink pone aria-current="page" en el enlace de la página actual:
+   se marca con negrita y subrayado grueso, no solo con color. */
+.menu a[aria-current="page"] {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+}
+
+.convocatorias-intro {
+  margin-bottom: 1.5rem;
+}
+.convocatorias-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1rem;
+  text-align: left;
+}
+.convocatoria-card {
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+.convocatoria-card h2 {
+  margin-bottom: 0.5rem;
+}
+.convocatoria-card h2 a {
+  color: var(--text-h);
+}
+.convocatoria-card p + p {
+  margin-top: 0.4rem;
+}
+.convocatoria-estado {
+  text-transform: capitalize;
+}
+.convocatoria-detalle {
+  margin: 1.5rem 0 2rem;
+  text-align: left;
+}
+.convocatoria-detalle dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.convocatoria-detalle dl div {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+.convocatoria-detalle dt {
+  font-weight: 700;
+  color: var(--text-h);
+}
+.convocatoria-detalle dd {
+  margin: 0.25rem 0 0;
+}

@@ -1,20 +1,33 @@
 import { Button } from "@mui/material";
 
-
-function SearchBar({ busqueda, onBusqueda, orden, onOrden, total, vista, onVista }) {
+function SearchBar({ busqueda, onBusqueda, orden, onOrden, total, vista, onVista, convocatoria, onConvocatoria, convocatorias, provincias, onProvincia, provincia }) {
   return (
     <div className="search-bar">
       <input
-        type="search"
-        placeholder="Buscar por municipio, provincia o referencia..."
-        value={busqueda}
-        onChange={(e) => onBusqueda(e.target.value)}
+        list="lista-provincias"
+        placeholder="Provincia"
+        value={provincia}
+        onChange={(e) => onProvincia(e.target.value)}
       />
+      <datalist id="lista-provincias">
+        {provincias.map((p) => (
+          <option key={p} value={p} />
+        ))}
+      </datalist>
 
       <select value={orden} onChange={(e) => onOrden(e.target.value)}>
         <option value="ninguno">Sin ordenar</option>
         <option value="asc">Renta: menor a mayor</option>
         <option value="desc">Renta: mayor a menor</option>
+      </select>
+
+      <select value={convocatoria} onChange={(e) => onConvocatoria(e.target.value)}>
+        <option value="">Todas las convocatorias</option>
+          {convocatorias.map((c) => (
+            <option key={c.id} value={c.id}>
+              {c.codigo}
+            </option>
+          ))}
       </select>
 
       <Button type="button" variant="contained" className={vista === "lista" ? "active" : ""} onClick={() => onVista("rejilla")} > Rejilla </Button>
